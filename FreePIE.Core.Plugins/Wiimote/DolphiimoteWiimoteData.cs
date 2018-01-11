@@ -140,9 +140,9 @@ namespace FreePIE.Core.Plugins.Wiimote
                                                                      motionplus.pitch_left_speed,
                                                                      motionplus.roll_left_speed);
 
-            return new CalibratedValue<Gyro>(gyro.DidCalibrate, new Gyro((motionplus.slow_modes & 0x1) == 0x1 ? gyro.Value.x : gyro.Value.x * fastModeFactor,
-                                                                         (motionplus.slow_modes & 0x4) == 0x4 ? gyro.Value.y : gyro.Value.y * fastModeFactor,
-                                                                         (motionplus.slow_modes & 0x2) == 0x2 ? gyro.Value.z : gyro.Value.z * fastModeFactor));
+            return new CalibratedValue<Gyro>(gyro.DidCalibrate, new Gyro((motionplus.slow_modes & 0x4) == 0x4 ? gyro.Value.x : gyro.Value.x * fastModeFactor,
+                                                                         (motionplus.slow_modes & 0x2) == 0x2 ? gyro.Value.y : gyro.Value.y * fastModeFactor,
+                                                                         (motionplus.slow_modes & 0x1) == 0x1 ? gyro.Value.z : gyro.Value.z * fastModeFactor));
         }
 
         public void Update(DolphiimoteData rawData)
